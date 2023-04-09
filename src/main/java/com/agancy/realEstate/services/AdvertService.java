@@ -1,9 +1,6 @@
 package com.agancy.realEstate.services;
 
-import com.agancy.realEstate.dto.AdvertCreationCommand;
-import com.agancy.realEstate.dto.AdvertFormInitData;
-import com.agancy.realEstate.dto.CategoryTypeOption;
-import com.agancy.realEstate.dto.SubCategoryTypeOption;
+import com.agancy.realEstate.dto.*;
 import com.agancy.realEstate.entities.Advert;
 import com.agancy.realEstate.entities.CategoryType;
 import com.agancy.realEstate.entities.SubCategoryType;
@@ -13,6 +10,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Transactional
@@ -35,5 +33,11 @@ public class AdvertService {
                         .map(SubCategoryTypeOption::new)
                         .collect(Collectors.toSet())
         );
+    }
+
+    public List<AdvertListItem> getAdvertList() {
+        return advertRepository.findAllActiveAdverts().stream()
+                .map(AdvertListItem::new)
+                .collect(Collectors.toList());
     }
 }
