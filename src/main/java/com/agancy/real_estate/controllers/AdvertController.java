@@ -46,4 +46,10 @@ public class AdvertController {
         advertService.deleteAdvert(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @PostMapping("/{id}")
+    public ResponseEntity<Void> updateAdvert(@PathVariable Long id, @RequestBody AdvertCreationCommand command){
+        advertService.updateAdvert(id, command);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

@@ -53,6 +53,26 @@ public class AdvertService {
         advertRepository.save(advert);
     }
 
+    public void updateAdvert(Long id, AdvertCreationCommand command) {
+            Advert advert = findActiveAdvertById(id);
+            advert.setForSale(command.isForSale);
+            advert.setCategoryType(CategoryType.valueOf(command.categoryType));
+            advert.setSubCategoryType(SubCategoryType.valueOf(command.subCategoryType));
+            advert.setZipCode(command.zipCode);
+            advert.setSettlementName(command.settlementName);
+            advert.setSettlementName(command.streetName);
+            advert.setHouseNumber(command.houseNumber);
+            advert.setParcelNumber(command.parcelNumber);
+            advert.setFloorArea(command.floorArea);
+            advert.setRoomNumber(command.roomNumber);
+            advert.setHalfRoomNumber(command.halfRoomNumber);
+            advert.setDescription(command.description);
+            advert.setPrice(command.price);
+            advert.setOverheadCost(command.overheadCost);
+            advert.setPictureUrl(command.pictureUrl);
+            advertRepository.save(advert);
+        }
+
     private Advert findActiveAdvertById(Long id) {
         return advertRepository.findByIdAndActiveAdvert(id).orElseThrow(
                 () -> new EntityNotFoundException("Advert with id: " + id + " not found"));
