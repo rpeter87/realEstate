@@ -40,4 +40,10 @@ public class AdvertController {
     public ResponseEntity<AdvertDetails> getAdvertDetails(@PathVariable Long id){
         return new ResponseEntity<>(advertService.getAdvertDetails(id), HttpStatus.OK);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteAdvert(@PathVariable Long id){
+        advertService.deleteAdvert(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

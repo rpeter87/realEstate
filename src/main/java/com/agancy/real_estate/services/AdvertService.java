@@ -47,6 +47,12 @@ public class AdvertService {
         return new AdvertDetails(advert);
     }
 
+    public void deleteAdvert(Long id) {
+        Advert advert = findActiveAdvertById(id);
+        advert.setActive(false);
+        advertRepository.save(advert);
+    }
+
     private Advert findActiveAdvertById(Long id) {
         return advertRepository.findByIdAndActiveAdvert(id).orElseThrow(
                 () -> new EntityNotFoundException("Advert with id: " + id + " not found"));
