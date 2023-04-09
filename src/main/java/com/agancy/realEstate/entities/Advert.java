@@ -1,5 +1,6 @@
 package com.agancy.realEstate.entities;
 
+import com.agancy.realEstate.dto.AdvertCreationCommand;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -71,5 +72,23 @@ public class Advert {
     @Column(name = "is_active")
     private boolean isActive;
 
-
+    public Advert(AdvertCreationCommand command) {
+        this.forSale = command.isForSale;
+        this.categoryType = CategoryType.valueOf(command.getCategoryType());
+        this.subCategoryType= SubCategoryType.valueOf(command.getSubCategoryType());
+        this.zipCode = command.zipCode;
+        this.settlementName = command.settlementName;
+        this.streetName = command.streetName;
+        this.houseNumber = command.houseNumber;
+        this.parcelNumber = command.parcelNumber;
+        this.floorArea = command.floorArea;
+        this.roomNumber = command.roomNumber;
+        this.halfRoomNumber = command.halfRoomNumber;
+        this.description = command.description;
+        this.price = command.price;
+        this.overheadCost = command.overheadCost;
+        this.creationTimeStamp = LocalDateTime.now();
+        this.pictureUrl = command.getPictureUrl();
+        this.isActive = true;
+    }
 }
