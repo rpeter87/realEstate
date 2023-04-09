@@ -1,9 +1,10 @@
-package com.agancy.realEstate.controllers;
+package com.agancy.real_estate.controllers;
 
-import com.agancy.realEstate.dto.AdvertCreationCommand;
-import com.agancy.realEstate.dto.AdvertFormInitData;
-import com.agancy.realEstate.dto.AdvertListItem;
-import com.agancy.realEstate.services.AdvertService;
+import com.agancy.real_estate.dto.AdvertCreationCommand;
+import com.agancy.real_estate.dto.AdvertDetails;
+import com.agancy.real_estate.dto.AdvertFormInitData;
+import com.agancy.real_estate.dto.AdvertListItem;
+import com.agancy.real_estate.services.AdvertService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class AdvertController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createAdvert(@RequestBody AdvertCreationCommand command){
+    public ResponseEntity createAdvert(@RequestBody AdvertCreationCommand command){
         advertService.createAdvert(command);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
@@ -33,5 +34,10 @@ public class AdvertController {
     public ResponseEntity<List<AdvertListItem>> getAdvertList(){
         List<AdvertListItem> list = advertService.getAdvertList();
         return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<AdvertDetails> getAdvertDetails(@PathVariable Long id){
+        return new ResponseEntity<>(advertService.getAdvertDetails(id), HttpStatus.OK);
     }
 }
