@@ -1,4 +1,4 @@
-package com.agancy.realEstate.dto;
+package com.agancy.real_estate.dto;
 
 import lombok.Getter;
 import lombok.Setter;

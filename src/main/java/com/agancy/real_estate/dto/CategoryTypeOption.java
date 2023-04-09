@@ -1,6 +1,6 @@
-package com.agancy.realEstate.dto;
+package com.agancy.real_estate.dto;
 
-import com.agancy.realEstate.entities.CategoryType;
+import com.agancy.real_estate.entities.CategoryType;
 import lombok.Getter;
 import lombok.Setter;
 

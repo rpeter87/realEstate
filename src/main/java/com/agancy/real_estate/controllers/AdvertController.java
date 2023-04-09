@@ -25,7 +25,7 @@ public class AdvertController {
     }
 
     @PostMapping
-    public ResponseEntity createAdvert(@RequestBody AdvertCreationCommand command){
+    public ResponseEntity<Void> createAdvert(@RequestBody AdvertCreationCommand command){
         advertService.createAdvert(command);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

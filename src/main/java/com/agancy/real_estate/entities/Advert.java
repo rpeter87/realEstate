@@ -1,6 +1,6 @@
-package com.agancy.realEstate.entities;
+package com.agancy.real_estate.entities;
 
-import com.agancy.realEstate.dto.AdvertCreationCommand;
+import com.agancy.real_estate.dto.AdvertCreationCommand;
 import jakarta.persistence.*;
 import lombok.*;
 

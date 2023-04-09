@@ -1,4 +1,4 @@
-package com.agancy.realEstate.entities;
+package com.agancy.real_estate.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

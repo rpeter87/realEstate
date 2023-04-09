@@ -1,6 +1,6 @@
-package com.agancy.realEstate.dto;
+package com.agancy.real_estate.dto;
 
-import com.agancy.realEstate.entities.Advert;
+import com.agancy.real_estate.entities.Advert;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
